@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Space Portfolio</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="navigation.css">
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <div class="space-portfolio">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="star-field" id="starField"></div>
+        
+        <nav class="navigation">
+            <div class="logo">ZR</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+
+        <section class="projects-section">
+            <h1 class="projects-title">My Projects</h1>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Web Portfolio</h3>
+                    <p>A minimalist space-themed portfolio website</p>
+                    <span class="project-category">Web Development</span>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Task Manager</h3>
+                    <p>Clean and efficient task management app</p>
+                    <span class="project-category">Web Application</span>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Brand Identity</h3>
+                    <p>Complete brand identity design system</p>
+                    <span class="project-category">Graphic Design</span>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Create star field animation
+        function createStarField() {
+            const starField = document.getElementById('starField');
+            const numberOfStars = 200;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = `${Math.random() * 3}px`;
+                star.style.width = size;
+                star.style.height = size;
+                
+                // Random twinkle duration
+                star.style.setProperty('--twinkle-duration', `${2 + Math.random() * 3}s`);
+                
+                starField.appendChild(star);
+            }
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', () => {
+            createStarField();
+        });
+    </script>
+</body>
+</html>

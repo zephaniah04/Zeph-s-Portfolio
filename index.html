@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Space Portfolio</title>
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./contact.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" />
+</head>
+<body>
+    <div class="space-portfolio">
+        <div class="stars">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+        <div class="twinkling"></div>
+        <div class="star-field" id="starField"></div>
+        
+        <nav class="navigation">
+            <div class="logo">ZR</div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+
+        <main class="hero-section">
+            <div class="central-planet"></div>
+            <div class="content-wrapper">
+                <h1 class="greeting">Hello, I'm</h1>
+                <h2 class="name">Zephaniah Raika</h2>
+                <div class="title-container">
+                    <span class="title">Freelance graphic designer, Frontend developer & photographer</span>
+                    <p class="description">I create seamless web experiences for end-users.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="projects.html" class="primary-btn">View Projects</a>
+                    <a href="#contact" class="secondary-btn">Contact Me</a>
+                </div>
+            </div>
+            <div class="orbit-container">
+                <div class="planet"></div>
+                <div class="satellite"></div>
+            </div>
+            <div class="orbit-container">
+                <div class="planet"></div>
+                <div class="satellite"></div>
+            </div>
+        </main>
+
+        <div class="floating-elements">
+            <div class="floating-circle"></div>
+            <div class="floating-square"></div>
+        </div>
+
+        <section id="contact" class="contact-section">
+            <div class="contact-content">
+                <h2 class="contact-title">Contact Me</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+	<script>
+        // Create star field animation
+        function createStarField() {
+            const starField = document.getElementById('starField');
+            const numberOfStars = 200;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = `${Math.random() * 3}px`;
+                star.style.width = size;
+                star.style.height = size;
+                
+                // Random twinkle duration
+                star.style.setProperty('--twinkle-duration', `${2 + Math.random() * 3}s`);
+                
+                starField.appendChild(star);
+            }
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', () => {
+            createStarField();
+        });
+    </script>
+</body>
+</html>

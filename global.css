@@ -1,0 +1,112 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a1f;
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.space-portfolio {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: #0a0a1f;
+    z-index: 0;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.stars::before,
+.stars::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 25px 25px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 50px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 75px 75px, #00ffff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 100px 100px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 125px 125px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 150px 150px, #00ffff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 175px 175px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 200px 200px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 250px 250px;
+    opacity: 0;
+}
+
+.stars::before {
+    animation: twinkle 5s infinite;
+}
+
+.stars::after {
+    background-position: 100px 50px;
+    animation: twinkle 5s infinite 2.5s;
+}
+
+.twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    animation: move-twinkle 20s linear infinite;
+}
+
+@keyframes move-twinkle {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+/* Content z-index management */
+.main-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .twinkling::before {
+        background-size: 30px 30px;
+    }
+    
+    .stars::before,
+    .stars::after {
+        background-size: 150px 150px;
+    }
+    
+    .space-portfolio {
+        padding: 1rem;
+    }
+    
+    body {
+        font-size: 14px;
+    }
+}
+
